@@ -8,7 +8,7 @@ using Owin;
 
 namespace OWINTest.Service
 {
-    class Startup
+    public class Startup
     {
         //  Hack from http://stackoverflow.com/a/17227764/19020 to load controllers in 
         //  another assembly.  Another way to do this is to create a custom assembly resolver
