@@ -19,12 +19,12 @@ namespace OWINTest.Service
         private IDisposable _server = null;
         private int port = 4500;
         private string baseAddress = "http://localhost/";
-
+        //http://localhost:4500/api/values/5
 
         public APIServiceTest()
         {
             InitializeComponent();
-            Debugger.Launch();
+            //Debugger.Launch();
             port = ConfigurationManager.AppSettings["Port"] == null ? port : Convert.ToInt16(ConfigurationManager.AppSettings.Get("Port").Trim());
             baseAddress = ConfigurationManager.AppSettings["BaseUrl"] == null ? baseAddress : ConfigurationManager.AppSettings.Get("BaseUrl").Trim();
             baseAddress = baseAddress.TrimEnd('/') + ":" + port.ToString() + "/";
@@ -32,16 +32,16 @@ namespace OWINTest.Service
 
         protected override void OnStart(string[] args)
         {
-           Debugger.Launch();
+           //Debugger.Launch();
             Logger _logger = new Logger();
             _logger.AppendLog("test");
 
             //_server = WebApp.Start<Startup>(new StartOptions
             //{
             //    Port = port
-                
             //});
             _logger.CommitLog("OnStart completed");
+            
             _server = WebApp.Start<Startup>(url: baseAddress);
         }
 
